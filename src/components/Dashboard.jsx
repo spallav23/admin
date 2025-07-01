@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import { Row, Col, Card, Statistic, Typography } from 'antd';
 import { 
   DollarOutlined, 
@@ -56,9 +56,9 @@ const productSalesData = [
 ];
 
 const Dashboard = () => {
-  const [isMobile, setIsMobile] = React.useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768);
     };

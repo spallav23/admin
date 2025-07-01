@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Input, Button, Card, Typography, Alert, Space } from 'antd';
 import { UserOutlined, LockOutlined, ShopOutlined } from '@ant-design/icons';
 import { login } from '../utils/auth';
@@ -30,21 +30,28 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container bakery-login">
       <div className="login-background">
         <div className="login-overlay">
-          <Card className="login-card" bordered={false}>
+          <Card className="login-card bakery-login-card" bordered={false}>
             <div className="login-header">
               <Space direction="vertical" align="center" size="large">
-                <div className="login-icon">
-                  <ShopOutlined style={{ fontSize: '48px', color: '#1890ff' }} />
+                <div className="bakery-login-icon">
+                  <div className="bakery-logo-container">
+                    <span className="bakery-emoji">🧁</span>
+                    <span className="bakery-emoji">🍰</span>
+                    <span className="bakery-emoji">🥖</span>
+                  </div>
                 </div>
                 <div className="login-title">
-                  <Title level={2} style={{ margin: 0, color: '#1890ff' }}>
-                    Bakery Admin Panel
+                  <Title level={2} className="bakery-title" style={{ margin: 0 }}>
+                    Sweet Dreams Bakery
                   </Title>
-                  <Text type="secondary">
-                    Welcome back! Please sign in to continue.
+                  <Title level={4} style={{ margin: '8px 0 0 0', color: 'var(--bakery-brown)' }}>
+                    Admin Portal
+                  </Title>
+                  <Text style={{ color: 'var(--bakery-text-light)', fontSize: '16px' }}>
+                    Welcome back! Please sign in to manage your bakery.
                   </Text>
                 </div>
               </Space>

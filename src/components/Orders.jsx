@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import { 
-  Table, 
-  Tag, 
-  Button, 
-  Space, 
-  Typography, 
-  Card, 
-  Select, 
-  Input, 
+import { useState, useEffect } from 'react';
+import {
+  Table,
+  Tag,
+  Button,
+  Space,
+  Typography,
+  Card,
+  Select,
+  Input,
   Modal,
   Descriptions,
   Divider,
   message
 } from 'antd';
+import ResponsiveTable from './ResponsiveTable';
 import { 
   EyeOutlined, 
   EditOutlined, 
@@ -105,7 +106,7 @@ const Orders = () => {
   const [searchText, setSearchText] = useState('');
   const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -343,7 +344,7 @@ const Orders = () => {
           </Space>
         </Space>
 
-        <Table
+        <ResponsiveTable
           columns={columns}
           dataSource={filteredOrders}
           rowKey="id"

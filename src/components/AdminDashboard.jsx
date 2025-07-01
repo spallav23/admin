@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Layout, Menu, Button, Avatar, Dropdown, Typography, Space, Drawer } from 'antd';
 import {
   DashboardOutlined,
@@ -16,7 +16,7 @@ import Orders from './Orders';
 import Products from './Products';
 
 const { Header, Sider, Content } = Layout;
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const AdminDashboard = ({ user, onLogout }) => {
   const navigate = useNavigate();
@@ -95,10 +95,13 @@ const AdminDashboard = ({ user, onLogout }) => {
         textAlign: 'center'
       }}>
         <Space direction="vertical" size="small">
-          <ShopOutlined style={{ fontSize: '32px', color: '#1890ff' }} />
-          <Title level={4} style={{ margin: 0, color: '#1890ff' }}>
-            Bakery Admin
+          <div style={{ fontSize: '28px', marginBottom: '8px' }}>🧁</div>
+          <Title level={4} className="bakery-title" style={{ margin: 0 }}>
+            Sweet Dreams
           </Title>
+          <Text style={{ color: 'var(--bakery-text-light)', fontSize: '12px' }}>
+            Bakery Admin
+          </Text>
         </Space>
       </div>
 
@@ -158,8 +161,8 @@ const AdminDashboard = ({ user, onLogout }) => {
                 style={{ marginRight: '16px' }}
               />
             )}
-            <Title level={3} style={{ margin: 0 }}>
-              Admin Panel
+            <Title level={3} className="bakery-title" style={{ margin: 0 }}>
+              🧁 Bakery Dashboard
             </Title>
           </div>
 

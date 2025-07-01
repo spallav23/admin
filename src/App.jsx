@@ -6,6 +6,7 @@ import AdminDashboard from './components/AdminDashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import { isAuthenticated, getAdminData } from './utils/auth';
 import './App.css';
+import './styles/bakery-theme.css';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -48,12 +49,20 @@ function App() {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#1890ff',
-          borderRadius: 8,
+          colorPrimary: '#D4A574',
+          colorPrimaryHover: '#B8956A',
+          colorPrimaryActive: '#8B4513',
+          borderRadius: 12,
+          fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+          colorBgContainer: '#FEFCF8',
+          colorBgElevated: '#FFF8F0',
+          colorBorder: '#E8D4B8',
+          colorText: '#3C2415',
+          colorTextSecondary: '#8B7355',
         },
       }}
     >
-      <div className="App">
+      <div className="App bakery-theme">
         <Routes>
           <Route
             path="/login"

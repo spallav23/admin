@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Table,
   Button,
@@ -27,6 +27,7 @@ import {
   MinusCircleOutlined,
   CloseOutlined
 } from '@ant-design/icons';
+import ResponsiveTable from './ResponsiveTable';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -125,7 +126,7 @@ const Products = () => {
   const [fileList, setFileList] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -388,7 +389,7 @@ const Products = () => {
       </div>
 
       <Card>
-        <Table
+        <ResponsiveTable
           columns={columns}
           dataSource={products}
           rowKey="id"
