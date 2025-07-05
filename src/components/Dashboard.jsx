@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Row, Col, Card, Statistic, Typography } from 'antd';
+import { Row, Col, Card, Statistic, Typography, Spin, Alert } from 'antd';
+import { useApi } from '../hooks/useApi';
+import { dashboardService } from '../services';
 import { 
   DollarOutlined, 
   ShoppingCartOutlined, 
@@ -58,6 +60,40 @@ const productSalesData = [
 const Dashboard = () => {
   const [isMobile, setIsMobile] = useState(false);
 
+  // API hooks for dashboard data
+  const {
+    data: statsData,
+    loading: statsLoading,
+    error: statsError
+  } = useApi(dashboardService.getStats, [], {
+    immediate: true,
+    showErrorMessage: false
+  });
+
+  const {
+    data: salesData,
+    loading: salesLoading
+  } = useApi(() => dashboardService.getSalesData('6months'), [], {
+    immediate: true,
+    showErrorMessage: false
+  });
+
+  const {
+    data: last30DaysData,
+    loading: last30DaysLoading
+  } = useApi(dashboardService.getLast30DaysSales, [], {
+    immediate: true,
+    showErrorMessage: false
+  });
+
+  const {
+    data: productDistribution,
+    loading: productLoading
+  } = useApi(dashboardService.getProductSalesDistribution, [], {
+    immediate: true,
+    showErrorMessage: false
+  });
+
   useEffect(() => {
     const checkScreenSize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -69,11 +105,64 @@ const Dashboard = () => {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
+  // Fallback to dummy data if API fails
+  const stats = statsData || {
+    totalRevenue: 28500,
+    totalOrders: 1754,
+    newCustomers: 234,
+    bestSeller: 'Chocolate Cake'
+  };
+
+  const chartSalesData = salesData || [
+    { name: 'Jan', sales: 4000, orders: 240 },
+    { name: 'Feb', sales: 3000, orders: 198 },
+    { name: 'Mar', sales: 5000, orders: 300 },
+    { name: 'Apr', sales: 4500, orders: 278 },
+    { name: 'May', sales: 6000, orders: 389 },
+    { name: 'Jun', sales: 5500, orders: 349 },
+  ];
+
+  const last30Days = last30DaysData || [
+    { day: 'Day 1', sales: 120 },
+    { day: 'Day 5', sales: 150 },
+    { day: 'Day 10', sales: 180 },
+    { day: 'Day 15', sales: 200 },
+    { day: 'Day 20', sales: 170 },
+    { day: 'Day 25', sales: 220 },
+    { day: 'Day 30', sales: 250 },
+  ];
+
+  const productSales = productDistribution || [
+    { name: 'Cakes', value: 400, color: '#8884d8' },
+    { name: 'Pastries', value: 300, color: '#82ca9d' },
+    { name: 'Bread', value: 200, color: '#ffc658' },
+    { name: 'Cookies', value: 150, color: '#ff7300' },
+  ];
+
+  // Show error if stats failed to load
+  if (statsError) {
+    return (
+      <div style={{ padding: isMobile ? '16px' : '24px' }}>
+        <Alert
+          message="Dashboard Error"
+          description="Failed to load dashboard data. Using demo data instead."
+          type="warning"
+          showIcon
+          style={{ marginBottom: '24px' }}
+        />
+        <Title level={2} style={{ marginBottom: '24px' }}>
+          📊 Sales Dashboard
+        </Title>
+      </div>
+    );
+  }
+
   return (
-    <div style={{ padding: isMobile ? '16px' : '24px' }}>
-      <Title level={2} style={{ marginBottom: '24px' }}>
-        📊 Sales Dashboard
-      </Title>
+    <Spin spinning={statsLoading} tip="Loading dashboard...">
+      <div style={{ padding: isMobile ? '16px' : '24px' }}>
+        <Title level={2} style={{ marginBottom: '24px' }}>
+          📊 Sales Dashboard
+        </Title>
 
       {/* Statistics Cards */}
       <Row gutter={[16, 16]} style={{ marginBottom: '24px' }}>
@@ -81,7 +170,7 @@ const Dashboard = () => {
           <Card>
             <Statistic
               title="Total Revenue"
-              value={28500}
+              value={stats.totalRevenue}
               precision={2}
               valueStyle={{ color: '#3f8600' }}
               prefix={<DollarOutlined />}
@@ -96,7 +185,7 @@ const Dashboard = () => {
           <Card>
             <Statistic
               title="Total Orders"
-              value={1754}
+              value={stats.totalOrders}
               valueStyle={{ color: '#1890ff' }}
               prefix={<ShoppingCartOutlined />}
             />
@@ -109,7 +198,7 @@ const Dashboard = () => {
           <Card>
             <Statistic
               title="New Customers"
-              value={234}
+              value={stats.newCustomers}
               valueStyle={{ color: '#722ed1' }}
               prefix={<UserOutlined />}
             />
@@ -122,7 +211,7 @@ const Dashboard = () => {
           <Card>
             <Statistic
               title="Best Seller"
-              value="Chocolate Cake"
+              value={stats.bestSeller}
               valueStyle={{ color: '#fa8c16' }}
               prefix={<TrophyOutlined />}
             />
@@ -138,7 +227,7 @@ const Dashboard = () => {
         <Col xs={24} lg={12}>
           <Card title="Overall Sales (6 Months)" style={{ height: isMobile ? '300px' : '400px' }}>
             <ResponsiveContainer width="100%" height={isMobile ? 220 : 300}>
-              <AreaChart data={salesData}>
+              <AreaChart data={chartSalesData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" fontSize={isMobile ? 10 : 12} />
                 <YAxis fontSize={isMobile ? 10 : 12} />
@@ -159,7 +248,7 @@ const Dashboard = () => {
         <Col xs={24} lg={12}>
           <Card title="Last 30 Days Sales" style={{ height: isMobile ? '300px' : '400px' }}>
             <ResponsiveContainer width="100%" height={isMobile ? 220 : 300}>
-              <LineChart data={last30DaysData}>
+              <LineChart data={last30Days}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="day" fontSize={isMobile ? 10 : 12} />
                 <YAxis fontSize={isMobile ? 10 : 12} />
@@ -184,7 +273,7 @@ const Dashboard = () => {
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
-                  data={productSalesData}
+                  data={productSales}
                   cx="50%"
                   cy="50%"
                   labelLine={false}
@@ -193,7 +282,7 @@ const Dashboard = () => {
                   fill="#8884d8"
                   dataKey="value"
                 >
-                  {productSalesData.map((entry, index) => (
+                  {productSales.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
@@ -206,7 +295,7 @@ const Dashboard = () => {
         <Col xs={24} lg={12}>
           <Card title="Monthly Orders vs Sales" style={{ height: '400px' }}>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={salesData}>
+              <BarChart data={chartSalesData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
@@ -220,6 +309,7 @@ const Dashboard = () => {
         </Col>
       </Row>
     </div>
+    </Spin>
   );
 };
 

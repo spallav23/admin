@@ -1,13 +1,8 @@
 import Cookies from 'js-cookie';
-
-// Static admin credentials
-const ADMIN_CREDENTIALS = {
-  username: 'admin',
-  password: 'admin123'
-};
+import { authService } from '../services/authService';
 
 // Cookie configuration
-const COOKIE_NAME = 'bakery_admin_session';
+const COOKIE_NAME = 'havre_admin_session';
 const COOKIE_OPTIONS = {
   expires: 7, // 7 days
   secure: false, // Set to true in production with HTTPS
@@ -15,24 +10,57 @@ const COOKIE_OPTIONS = {
 };
 
 // Authentication functions
-export const login = (username, password) => {
-  if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
-    const adminData = {
-      username: ADMIN_CREDENTIALS.username,
-      loginTime: new Date().toISOString(),
-      isAuthenticated: true
-    };
-    
-    // Store in cookie
-    Cookies.set(COOKIE_NAME, JSON.stringify(adminData), COOKIE_OPTIONS);
-    return { success: true, user: adminData };
+export const login = async (username, password) => {
+  try {
+    // Try API login first
+    const result = await authService.login({ username, password });
+
+    if (result.success) {
+      const adminData = {
+        username: result.user.username,
+        email: result.user.email,
+        role: result.user.role,
+        token: result.token,
+        loginTime: new Date().toISOString(),
+        isAuthenticated: true
+      };
+
+      // Store in cookie
+      Cookies.set(COOKIE_NAME, JSON.stringify(adminData), COOKIE_OPTIONS);
+      return { success: true, user: adminData };
+    }
+
+    return result;
+  } catch (error) {
+    // Fallback to static credentials for development
+    if (username === 'admin' && password === 'admin123') {
+      const adminData = {
+        username: 'admin',
+        email: 'admin@havrebakery.com',
+        role: 'admin',
+        loginTime: new Date().toISOString(),
+        isAuthenticated: true
+      };
+
+      // Store in cookie
+      Cookies.set(COOKIE_NAME, JSON.stringify(adminData), COOKIE_OPTIONS);
+      return { success: true, user: adminData };
+    }
+
+    return { success: false, error: 'Invalid username or password' };
   }
-  
-  return { success: false, error: 'Invalid username or password' };
 };
 
-export const logout = () => {
-  Cookies.remove(COOKIE_NAME);
+export const logout = async () => {
+  try {
+    // Try API logout
+    // await authService.logout();
+  } catch (error) {
+    console.error('API logout failed:', error);
+  } finally {
+    // Always remove local session
+    Cookies.remove(COOKIE_NAME);
+  }
   return true;
 };
 

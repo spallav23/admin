@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Form, Input, Button, Card, Typography, Alert, Space } from 'antd';
-import { UserOutlined, LockOutlined, ShopOutlined } from '@ant-design/icons';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { login } from '../utils/auth';
 import './Login.css';
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 const Login = ({ onLogin }) => {
   const [loading, setLoading] = useState(false);
@@ -15,14 +15,14 @@ const Login = ({ onLogin }) => {
     setError('');
 
     try {
-      const result = login(values.username, values.password);
-      
+      const result = await login(values.username, values.password);
+
       if (result.success) {
         onLogin(result.user);
       } else {
         setError(result.error);
       }
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred. Please try again.');
     } finally {
       setLoading(false);
@@ -30,29 +30,22 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="login-container bakery-login">
+    <div className="login-container havre-login">
       <div className="login-background">
         <div className="login-overlay">
-          <Card className="login-card bakery-login-card" bordered={false}>
+          <Card className="login-card">
             <div className="login-header">
-              <Space direction="vertical" align="center" size="large">
-                <div className="bakery-login-icon">
-                  <div className="bakery-logo-container">
-                    <span className="bakery-emoji">🧁</span>
-                    <span className="bakery-emoji">🍰</span>
-                    <span className="bakery-emoji">🥖</span>
+              <Space direction="vertical" align="center" size="small">
+                <div className="havre-login-icon">
+                  <div className="havre-logo-container">
+                    <img
+                      src="/PHOTO-2025-06-23-23-40-29.svg"
+                      alt="Havre Bakery Logo"
+                      className="havre-logo-image"
+                    />
+                    <div className="havre-logo-text">Admin Portal</div>
+                    <div className="havre-logo-subtitle">Please sign in to continue</div>
                   </div>
-                </div>
-                <div className="login-title">
-                  <Title level={2} className="bakery-title" style={{ margin: 0 }}>
-                    Sweet Dreams Bakery
-                  </Title>
-                  <Title level={4} style={{ margin: '8px 0 0 0', color: 'var(--bakery-brown)' }}>
-                    Admin Portal
-                  </Title>
-                  <Text style={{ color: 'var(--bakery-text-light)', fontSize: '16px' }}>
-                    Welcome back! Please sign in to manage your bakery.
-                  </Text>
                 </div>
               </Space>
             </div>
@@ -61,7 +54,7 @@ const Login = ({ onLogin }) => {
               name="login"
               onFinish={handleSubmit}
               autoComplete="off"
-              size="large"
+              size="middle"
               layout="vertical"
             >
               {error && (
@@ -112,8 +105,7 @@ const Login = ({ onLogin }) => {
                   htmlType="submit"
                   loading={loading}
                   block
-                  size="large"
-                  style={{ height: '48px', fontSize: '16px' }}
+                  size="middle"
                 >
                   {loading ? 'Signing In...' : 'Sign In'}
                 </Button>
@@ -121,8 +113,8 @@ const Login = ({ onLogin }) => {
             </Form>
 
             <div className="login-footer">
-              <Text type="secondary" style={{ fontSize: '12px' }}>
-                Demo Credentials: admin / admin123
+              <Text type="secondary" style={{ fontSize: '11px' }}>
+                Demo: admin / admin123
               </Text>
             </div>
           </Card>

@@ -2,286 +2,260 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
-  /* Bakery Color Palette */
-  --bakery-primary: #D4A574;
-  --bakery-primary-dark: #B8956A;
-  --bakery-primary-light: #E8D4B8;
-  --bakery-secondary: #8B4513;
-  --bakery-accent: #F4E4C1;
-  --bakery-cream: #FFF8F0;
-  --bakery-brown: #6B4423;
-  --bakery-gold: #DAA520;
-  --bakery-warm-white: #FEFCF8;
-  --bakery-text-dark: #3C2415;
-  --bakery-text-light: #8B7355;
-  --bakery-success: #52C41A;
-  --bakery-warning: #FAAD14;
-  --bakery-error: #FF4D4F;
-  --bakery-info: #1890FF;
-  
+  /* Havre Bakery Color Palette */
+  --havre-primary: #8B4513;
+  --havre-primary-light: #D2B48C;
+  --havre-secondary: #CD853F;
+  --havre-accent: #F5DEB3;
+  --havre-background: #FFF8DC;
+  --havre-surface: #FFFFFF;
+  --havre-border: #DDD;
+  --havre-text-primary: #2F1B14;
+  --havre-text-secondary: #5D4E37;
+  --havre-text-muted: #8B7355;
+
+  /* Status Colors */
+  --havre-success: #228B22;
+  --havre-warning: #DAA520;
+  --havre-error: #DC143C;
+  --havre-info: #4682B4;
+
   /* Shadows */
-  --bakery-shadow-light: 0 2px 8px rgba(139, 69, 19, 0.1);
-  --bakery-shadow-medium: 0 4px 16px rgba(139, 69, 19, 0.15);
-  --bakery-shadow-heavy: 0 8px 32px rgba(139, 69, 19, 0.2);
-  
+  --havre-shadow: 0 2px 4px rgba(139, 69, 19, 0.1);
+  --havre-shadow-medium: 0 4px 8px rgba(139, 69, 19, 0.15);
+
   /* Border Radius */
-  --bakery-radius-small: 8px;
-  --bakery-radius-medium: 12px;
-  --bakery-radius-large: 16px;
+  --havre-radius: 8px;
 }
 
 /* Global Overrides */
-.bakery-theme {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: var(--bakery-cream);
-  color: var(--bakery-text-dark);
+.havre-theme {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background-color: var(--havre-background);
+  color: var(--havre-text-primary);
 }
 
-.bakery-theme .ant-layout {
-  background: var(--bakery-cream) !important;
+.havre-theme .ant-layout {
+  background: var(--havre-background) !important;
 }
 
-.bakery-theme .ant-layout-header {
-  background: var(--bakery-warm-white) !important;
-  border-bottom: 2px solid var(--bakery-accent);
-  box-shadow: var(--bakery-shadow-light);
+.havre-theme .ant-layout-header {
+  background: var(--havre-surface) !important;
+  border-bottom: 2px solid var(--havre-primary);
+  box-shadow: var(--havre-shadow);
 }
 
-.bakery-theme .ant-layout-sider {
-  background: var(--bakery-warm-white) !important;
-  border-right: 2px solid var(--bakery-accent);
-  box-shadow: var(--bakery-shadow-medium);
+.havre-theme .ant-layout-sider {
+  background: var(--havre-surface) !important;
+  border-right: 2px solid var(--havre-primary);
+  box-shadow: var(--havre-shadow);
 }
 
 /* Typography */
-.bakery-title {
-  font-family: 'Playfair Display', serif !important;
-  color: var(--bakery-secondary) !important;
-  font-weight: 600 !important;
+.havre-title {
+  font-family: 'Georgia', serif !important;
+  color: var(--havre-primary) !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 2px rgba(139, 69, 19, 0.1);
 }
 
-.bakery-subtitle {
-  font-family: 'Playfair Display', serif !important;
-  color: var(--bakery-brown) !important;
-  font-weight: 500 !important;
+.havre-subtitle {
+  font-family: 'Georgia', serif !important;
+  color: var(--havre-text-secondary) !important;
+  font-weight: normal !important;
 }
 
 /* Buttons */
-.bakery-theme .ant-btn-primary {
-  background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-primary-dark)) !important;
-  border: none !important;
-  border-radius: var(--bakery-radius-medium) !important;
-  box-shadow: var(--bakery-shadow-light) !important;
-  font-weight: 500 !important;
-  transition: all 0.3s ease !important;
+.havre-theme .ant-btn-primary {
+  background: var(--havre-primary) !important;
+  border: 2px solid var(--havre-primary) !important;
+  border-radius: var(--havre-radius) !important;
+  font-weight: bold !important;
+  font-family: 'Georgia', serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.bakery-theme .ant-btn-primary:hover {
-  background: linear-gradient(135deg, var(--bakery-primary-dark), var(--bakery-secondary)) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: var(--bakery-shadow-medium) !important;
+.havre-theme .ant-btn-primary:hover {
+  background: var(--havre-secondary) !important;
+  border-color: var(--havre-secondary) !important;
+  transform: translateY(-1px);
+  box-shadow: var(--havre-shadow-medium);
 }
 
-.bakery-theme .ant-btn {
-  border-radius: var(--bakery-radius-medium) !important;
+.havre-theme .ant-btn {
+  border-radius: var(--havre-radius) !important;
   font-weight: 500 !important;
+  font-family: 'Georgia', serif !important;
 }
 
 /* Cards */
-.bakery-theme .ant-card {
-  background: var(--bakery-warm-white) !important;
-  border: 2px solid var(--bakery-accent) !important;
-  border-radius: var(--bakery-radius-large) !important;
-  box-shadow: var(--bakery-shadow-light) !important;
-  transition: all 0.3s ease !important;
+.havre-theme .ant-card {
+  background: var(--havre-surface) !important;
+  border: 2px solid var(--havre-primary) !important;
+  border-radius: var(--havre-radius) !important;
+  box-shadow: var(--havre-shadow) !important;
 }
 
-.bakery-theme .ant-card:hover {
-  box-shadow: var(--bakery-shadow-medium) !important;
-  transform: translateY(-2px) !important;
+.havre-theme .ant-card-head {
+  background: var(--havre-accent) !important;
+  border-bottom: 2px solid var(--havre-primary) !important;
+  border-radius: var(--havre-radius) var(--havre-radius) 0 0 !important;
 }
 
-.bakery-theme .ant-card-head {
-  background: var(--bakery-accent) !important;
-  border-bottom: 2px solid var(--bakery-primary-light) !important;
-  border-radius: var(--bakery-radius-large) var(--bakery-radius-large) 0 0 !important;
-}
-
-.bakery-theme .ant-card-head-title {
-  font-family: 'Playfair Display', serif !important;
-  color: var(--bakery-secondary) !important;
-  font-weight: 600 !important;
+.havre-theme .ant-card-head-title {
+  color: var(--havre-primary) !important;
+  font-weight: bold !important;
+  font-family: 'Georgia', serif !important;
 }
 
 /* Menu */
-.bakery-theme .ant-menu {
+.havre-theme .ant-menu {
   background: transparent !important;
   border: none !important;
 }
 
-.bakery-theme .ant-menu-item {
-  border-radius: var(--bakery-radius-medium) !important;
+.havre-theme .ant-menu-item {
+  border-radius: var(--havre-radius) !important;
   margin: 4px 8px !important;
   font-weight: 500 !important;
-  color: var(--bakery-text-dark) !important;
-  transition: all 0.3s ease !important;
+  color: var(--havre-text-primary) !important;
+  font-family: 'Georgia', serif !important;
 }
 
-.bakery-theme .ant-menu-item:hover {
-  background: var(--bakery-accent) !important;
-  color: var(--bakery-secondary) !important;
+.havre-theme .ant-menu-item:hover {
+  background: var(--havre-accent) !important;
+  color: var(--havre-primary) !important;
 }
 
-.bakery-theme .ant-menu-item-selected {
-  background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-primary-light)) !important;
+.havre-theme .ant-menu-item-selected {
+  background: var(--havre-primary) !important;
   color: white !important;
-  box-shadow: var(--bakery-shadow-light) !important;
+  font-weight: bold !important;
 }
 
 /* Tables */
-.bakery-theme .ant-table {
-  background: var(--bakery-warm-white) !important;
-  border-radius: var(--bakery-radius-large) !important;
-  overflow: hidden !important;
+.havre-theme .ant-table {
+  background: var(--havre-surface) !important;
+  border-radius: var(--havre-radius) !important;
+  border: 1px solid var(--havre-border) !important;
 }
 
-.bakery-theme .ant-table-thead > tr > th {
-  background: var(--bakery-accent) !important;
-  color: var(--bakery-secondary) !important;
-  font-weight: 600 !important;
-  border-bottom: 2px solid var(--bakery-primary-light) !important;
+.havre-theme .ant-table-thead > tr > th {
+  background: var(--havre-accent) !important;
+  color: var(--havre-primary) !important;
+  font-weight: bold !important;
+  border-bottom: 2px solid var(--havre-primary) !important;
+  font-family: 'Georgia', serif !important;
 }
 
-.bakery-theme .ant-table-tbody > tr:hover > td {
-  background: var(--bakery-cream) !important;
+.havre-theme .ant-table-tbody > tr:hover > td {
+  background: var(--havre-background) !important;
 }
 
 /* Forms */
-.bakery-theme .ant-input,
-.bakery-theme .ant-input-number,
-.bakery-theme .ant-select-selector {
-  border: 2px solid var(--bakery-accent) !important;
-  border-radius: var(--bakery-radius-medium) !important;
-  background: var(--bakery-warm-white) !important;
-  transition: all 0.3s ease !important;
+.havre-theme .ant-input,
+.havre-theme .ant-input-number,
+.havre-theme .ant-select-selector {
+  border: 2px solid var(--havre-border) !important;
+  border-radius: var(--havre-radius) !important;
+  background: var(--havre-surface) !important;
+  font-family: 'Georgia', serif !important;
 }
 
-.bakery-theme .ant-input:focus,
-.bakery-theme .ant-input-number:focus,
-.bakery-theme .ant-select-focused .ant-select-selector {
-  border-color: var(--bakery-primary) !important;
-  box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.2) !important;
+.havre-theme .ant-input:focus,
+.havre-theme .ant-input-number:focus,
+.havre-theme .ant-select-focused .ant-select-selector {
+  border-color: var(--havre-primary) !important;
+  box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.2) !important;
 }
 
 /* Statistics */
-.bakery-theme .ant-statistic-title {
-  color: var(--bakery-text-light) !important;
+.havre-theme .ant-statistic-title {
+  color: var(--havre-text-secondary) !important;
   font-weight: 500 !important;
+  font-family: 'Georgia', serif !important;
 }
 
-.bakery-theme .ant-statistic-content {
-  color: var(--bakery-secondary) !important;
-  font-weight: 600 !important;
+.havre-theme .ant-statistic-content {
+  color: var(--havre-primary) !important;
+  font-weight: bold !important;
+  font-family: 'Georgia', serif !important;
 }
 
 /* Tags */
-.bakery-theme .ant-tag {
-  border-radius: var(--bakery-radius-small) !important;
+.havre-theme .ant-tag {
+  border-radius: var(--havre-radius) !important;
   font-weight: 500 !important;
-  border: none !important;
+  border: 1px solid transparent !important;
+  font-family: 'Georgia', serif !important;
 }
 
 /* Modals */
-.bakery-theme .ant-modal-content {
-  background: var(--bakery-warm-white) !important;
-  border-radius: var(--bakery-radius-large) !important;
-  box-shadow: var(--bakery-shadow-heavy) !important;
+.havre-theme .ant-modal-content {
+  background: var(--havre-surface) !important;
+  border-radius: var(--havre-radius) !important;
+  box-shadow: var(--havre-shadow-medium) !important;
+  border: 2px solid var(--havre-primary) !important;
 }
 
-.bakery-theme .ant-modal-header {
-  background: var(--bakery-accent) !important;
-  border-bottom: 2px solid var(--bakery-primary-light) !important;
-  border-radius: var(--bakery-radius-large) var(--bakery-radius-large) 0 0 !important;
+.havre-theme .ant-modal-header {
+  background: var(--havre-accent) !important;
+  border-bottom: 2px solid var(--havre-primary) !important;
+  border-radius: var(--havre-radius) var(--havre-radius) 0 0 !important;
 }
 
-.bakery-theme .ant-modal-title {
-  font-family: 'Playfair Display', serif !important;
-  color: var(--bakery-secondary) !important;
-  font-weight: 600 !important;
+.havre-theme .ant-modal-title {
+  color: var(--havre-primary) !important;
+  font-weight: bold !important;
+  font-family: 'Georgia', serif !important;
 }
 
 /* Upload */
-.bakery-theme .ant-upload-select-picture-card {
-  background: var(--bakery-cream) !important;
-  border: 2px dashed var(--bakery-primary) !important;
-  border-radius: var(--bakery-radius-medium) !important;
+.havre-theme .ant-upload-select-picture-card {
+  background: var(--havre-background) !important;
+  border: 2px dashed var(--havre-primary) !important;
+  border-radius: var(--havre-radius) !important;
 }
 
-.bakery-theme .ant-upload-select-picture-card:hover {
-  border-color: var(--bakery-primary-dark) !important;
-  background: var(--bakery-accent) !important;
+.havre-theme .ant-upload-select-picture-card:hover {
+  border-color: var(--havre-secondary) !important;
+  background: var(--havre-accent) !important;
 }
 
 /* Drawer */
-.bakery-theme .ant-drawer-content {
-  background: var(--bakery-warm-white) !important;
+.havre-theme .ant-drawer-content {
+  background: var(--havre-surface) !important;
 }
 
-.bakery-theme .ant-drawer-header {
-  background: var(--bakery-accent) !important;
-  border-bottom: 2px solid var(--bakery-primary-light) !important;
+.havre-theme .ant-drawer-header {
+  background: var(--havre-accent) !important;
+  border-bottom: 2px solid var(--havre-primary) !important;
 }
 
 /* Pagination */
-.bakery-theme .ant-pagination-item {
-  border: 2px solid var(--bakery-accent) !important;
-  border-radius: var(--bakery-radius-small) !important;
+.havre-theme .ant-pagination-item {
+  border: 1px solid var(--havre-border) !important;
+  border-radius: var(--havre-radius) !important;
+  font-family: 'Georgia', serif !important;
 }
 
-.bakery-theme .ant-pagination-item-active {
-  background: var(--bakery-primary) !important;
-  border-color: var(--bakery-primary) !important;
+.havre-theme .ant-pagination-item-active {
+  background: var(--havre-primary) !important;
+  border-color: var(--havre-primary) !important;
 }
 
-.bakery-theme .ant-pagination-item-active a {
+.havre-theme .ant-pagination-item-active a {
   color: white !important;
-}
-
-/* Breadcrumb Icons */
-.bakery-icon {
-  color: var(--bakery-primary) !important;
-  font-size: 1.2em !important;
-}
-
-/* Custom Bakery Elements */
-.bakery-logo {
-  background: linear-gradient(135deg, var(--bakery-primary), var(--bakery-gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-}
-
-.bakery-gradient-bg {
-  background: linear-gradient(135deg, var(--bakery-cream), var(--bakery-accent));
-}
-
-.bakery-pattern-bg {
-  background-image: 
-    radial-gradient(circle at 25% 25%, var(--bakery-accent) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, var(--bakery-primary-light) 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: 0 0, 25px 25px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .bakery-theme .ant-card {
+  .havre-theme .ant-card {
     margin-bottom: 12px !important;
   }
-  
-  .bakery-theme .ant-table-wrapper {
-    border-radius: var(--bakery-radius-medium) !important;
+
+  .havre-theme .ant-table-wrapper {
+    border-radius: var(--havre-radius) !important;
   }
 }

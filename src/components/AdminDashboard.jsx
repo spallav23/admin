@@ -6,7 +6,6 @@ import {
   ProductOutlined,
   UserOutlined,
   LogoutOutlined,
-  ShopOutlined,
   MenuOutlined
 } from '@ant-design/icons';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
@@ -36,8 +35,8 @@ const AdminDashboard = ({ user, onLogout }) => {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     onLogout();
   };
 
@@ -95,12 +94,23 @@ const AdminDashboard = ({ user, onLogout }) => {
         textAlign: 'center'
       }}>
         <Space direction="vertical" size="small">
-          <div style={{ fontSize: '28px', marginBottom: '8px' }}>🧁</div>
-          <Title level={4} className="bakery-title" style={{ margin: 0 }}>
-            Sweet Dreams
+          <div style={{ fontSize: '20px', marginBottom: '4px' }}>🍞</div>
+          <Title level={4} style={{
+            margin: 0,
+            color: '#8B4513',
+            fontWeight: 'bold',
+            fontFamily: 'Georgia, serif',
+            fontSize: '16px'
+          }}>
+            HAVRE BAKERY
           </Title>
-          <Text style={{ color: 'var(--bakery-text-light)', fontSize: '12px' }}>
-            Bakery Admin
+          <Text style={{
+            color: '#5D4E37',
+            fontSize: '11px',
+            fontFamily: 'Georgia, serif',
+            fontStyle: 'italic'
+          }}>
+            Admin Panel
           </Text>
         </Space>
       </div>
@@ -136,7 +146,7 @@ const AdminDashboard = ({ user, onLogout }) => {
           placement="left"
           onClose={() => setMobileDrawerVisible(false)}
           open={mobileDrawerVisible}
-          bodyStyle={{ padding: 0 }}
+          styles={{ body: { padding: 0 } }}
           width={250}
         >
           {siderContent}
@@ -161,8 +171,8 @@ const AdminDashboard = ({ user, onLogout }) => {
                 style={{ marginRight: '16px' }}
               />
             )}
-            <Title level={3} className="bakery-title" style={{ margin: 0 }}>
-              🧁 Bakery Dashboard
+            <Title level={3} className="havre-title" style={{ margin: 0 }}>
+              🍞 HAVRE BAKERY DASHBOARD
             </Title>
           </div>
 

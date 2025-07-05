@@ -49,20 +49,20 @@ function App() {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: '#D4A574',
-          colorPrimaryHover: '#B8956A',
-          colorPrimaryActive: '#8B4513',
-          borderRadius: 12,
-          fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-          colorBgContainer: '#FEFCF8',
-          colorBgElevated: '#FFF8F0',
-          colorBorder: '#E8D4B8',
-          colorText: '#3C2415',
-          colorTextSecondary: '#8B7355',
+          colorPrimary: '#8B4513',
+          colorPrimaryHover: '#CD853F',
+          colorPrimaryActive: '#5D4E37',
+          borderRadius: 8,
+          fontFamily: 'Georgia, "Times New Roman", serif',
+          colorBgContainer: '#FFFFFF',
+          colorBgElevated: '#FFF8DC',
+          colorBorder: '#DDD',
+          colorText: '#2F1B14',
+          colorTextSecondary: '#5D4E37',
         },
       }}
     >
-      <div className="App bakery-theme">
+      <div className="App havre-theme">
         <Routes>
           <Route
             path="/login"
