@@ -43,7 +43,7 @@ const initialProductsData = [
     weight: '1.5 kg',
     servings: '8-10 people',
     category: 'Cakes',
-    image: 'https://via.placeholder.com/150x150/8B4513/FFFFFF?text=Chocolate+Cake',
+    image: ['https://via.placeholder.com/150x150/8B4513/FFFFFF?text=Chocolate+Cake'],
     details: [
       { title: 'Ingredients', value: 'Chocolate, Flour, Sugar, Eggs, Butter' },
       { title: 'Allergens', value: 'Contains Gluten, Eggs, Dairy' },

@@ -94,6 +94,282 @@ const ordersData = [
     status: 'processing',
     orderDate: '2024-01-15',
     deliveryDate: '2024-01-17'
+  },
+  {
+    id: 'ORD-001',
+    customerName: 'John Smith',
+    customerPhone: '+1-555-0123',
+    customerAddress: '123 Main St, New York, NY 10001',
+    items: [
+      { name: 'Chocolate Cake', quantity: 1, price: 25.99 },
+      { name: 'Vanilla Cupcakes', quantity: 6, price: 18.00 }
+    ],
+    total: 43.99,
+    status: 'delivered',
+    orderDate: '2024-01-15',
+    deliveryDate: '2024-01-16'
+  },
+  {
+    id: 'ORD-002',
+    customerName: 'Sarah Johnson',
+    customerPhone: '+1-555-0456',
+    customerAddress: '456 Oak Ave, Los Angeles, CA 90210',
+    items: [
+      { name: 'Wedding Cake', quantity: 1, price: 150.00 },
+      { name: 'Macarons', quantity: 24, price: 48.00 }
+    ],
+    total: 198.00,
+    status: 'processing',
+    orderDate: '2024-01-14',
+    deliveryDate: '2024-01-18'
+  },
+  {
+    id: 'ORD-003',
+    customerName: 'Mike Davis',
+    customerPhone: '+1-555-0789',
+    customerAddress: '789 Pine St, Chicago, IL 60601',
+    items: [
+      { name: 'Croissants', quantity: 12, price: 24.00 },
+      { name: 'Coffee Cake', quantity: 1, price: 15.99 }
+    ],
+    total: 39.99,
+    status: 'new',
+    orderDate: '2024-01-16',
+    deliveryDate: '2024-01-17'
+  },
+  {
+    id: 'ORD-004',
+    customerName: 'Emily Wilson',
+    customerPhone: '+1-555-0321',
+    customerAddress: '321 Elm St, Miami, FL 33101',
+    items: [
+      { name: 'Birthday Cake', quantity: 1, price: 35.00 }
+    ],
+    total: 35.00,
+    status: 'cancelled',
+    orderDate: '2024-01-13',
+    deliveryDate: null
+  },
+  {
+    id: 'ORD-005',
+    customerName: 'David Brown',
+    customerPhone: '+1-555-0654',
+    customerAddress: '654 Maple Dr, Seattle, WA 98101',
+    items: [
+      { name: 'Donuts', quantity: 24, price: 36.00 },
+      { name: 'Bagels', quantity: 12, price: 18.00 }
+    ],
+    total: 54.00,
+    status: 'processing',
+    orderDate: '2024-01-15',
+    deliveryDate: '2024-01-17'
+  },
+  {
+    id: 'ORD-001',
+    customerName: 'John Smith',
+    customerPhone: '+1-555-0123',
+    customerAddress: '123 Main St, New York, NY 10001',
+    items: [
+      { name: 'Chocolate Cake', quantity: 1, price: 25.99 },
+      { name: 'Vanilla Cupcakes', quantity: 6, price: 18.00 }
+    ],
+    total: 43.99,
+    status: 'delivered',
+    orderDate: '2024-01-15',
+    deliveryDate: '2024-01-16'
+  },
+  {
+    id: 'ORD-002',
+    customerName: 'Sarah Johnson',
+    customerPhone: '+1-555-0456',
+    customerAddress: '456 Oak Ave, Los Angeles, CA 90210',
+    items: [
+      { name: 'Wedding Cake', quantity: 1, price: 150.00 },
+      { name: 'Macarons', quantity: 24, price: 48.00 }
+    ],
+    total: 198.00,
+    status: 'processing',
+    orderDate: '2024-01-14',
+    deliveryDate: '2024-01-18'
+  },
+  {
+    id: 'ORD-003',
+    customerName: 'Mike Davis',
+    customerPhone: '+1-555-0789',
+    customerAddress: '789 Pine St, Chicago, IL 60601',
+    items: [
+      { name: 'Croissants', quantity: 12, price: 24.00 },
+      { name: 'Coffee Cake', quantity: 1, price: 15.99 }
+    ],
+    total: 39.99,
+    status: 'new',
+    orderDate: '2024-01-16',
+    deliveryDate: '2024-01-17'
+  },
+  {
+    id: 'ORD-004',
+    customerName: 'Emily Wilson',
+    customerPhone: '+1-555-0321',
+    customerAddress: '321 Elm St, Miami, FL 33101',
+    items: [
+      { name: 'Birthday Cake', quantity: 1, price: 35.00 }
+    ],
+    total: 35.00,
+    status: 'cancelled',
+    orderDate: '2024-01-13',
+    deliveryDate: null
+  },
+  {
+    id: 'ORD-005',
+    customerName: 'David Brown',
+    customerPhone: '+1-555-0654',
+    customerAddress: '654 Maple Dr, Seattle, WA 98101',
+    items: [
+      { name: 'Donuts', quantity: 24, price: 36.00 },
+      { name: 'Bagels', quantity: 12, price: 18.00 }
+    ],
+    total: 54.00,
+    status: 'processing',
+    orderDate: '2024-01-15',
+    deliveryDate: '2024-01-17'
+  },
+  {
+    id: 'ORD-001',
+    customerName: 'John Smith',
+    customerPhone: '+1-555-0123',
+    customerAddress: '123 Main St, New York, NY 10001',
+    items: [
+      { name: 'Chocolate Cake', quantity: 1, price: 25.99 },
+      { name: 'Vanilla Cupcakes', quantity: 6, price: 18.00 }
+    ],
+    total: 43.99,
+    status: 'delivered',
+    orderDate: '2024-01-15',
+    deliveryDate: '2024-01-16'
+  },
+  {
+    id: 'ORD-002',
+    customerName: 'Sarah Johnson',
+    customerPhone: '+1-555-0456',
+    customerAddress: '456 Oak Ave, Los Angeles, CA 90210',
+    items: [
+      { name: 'Wedding Cake', quantity: 1, price: 150.00 },
+      { name: 'Macarons', quantity: 24, price: 48.00 }
+    ],
+    total: 198.00,
+    status: 'processing',
+    orderDate: '2024-01-14',
+    deliveryDate: '2024-01-18'
+  },
+  {
+    id: 'ORD-003',
+    customerName: 'Mike Davis',
+    customerPhone: '+1-555-0789',
+    customerAddress: '789 Pine St, Chicago, IL 60601',
+    items: [
+      { name: 'Croissants', quantity: 12, price: 24.00 },
+      { name: 'Coffee Cake', quantity: 1, price: 15.99 }
+    ],
+    total: 39.99,
+    status: 'new',
+    orderDate: '2024-01-16',
+    deliveryDate: '2024-01-17'
+  },
+  {
+    id: 'ORD-004',
+    customerName: 'Emily Wilson',
+    customerPhone: '+1-555-0321',
+    customerAddress: '321 Elm St, Miami, FL 33101',
+    items: [
+      { name: 'Birthday Cake', quantity: 1, price: 35.00 }
+    ],
+    total: 35.00,
+    status: 'cancelled',
+    orderDate: '2024-01-13',
+    deliveryDate: null
+  },
+  {
+    id: 'ORD-005',
+    customerName: 'David Brown',
+    customerPhone: '+1-555-0654',
+    customerAddress: '654 Maple Dr, Seattle, WA 98101',
+    items: [
+      { name: 'Donuts', quantity: 24, price: 36.00 },
+      { name: 'Bagels', quantity: 12, price: 18.00 }
+    ],
+    total: 54.00,
+    status: 'processing',
+    orderDate: '2024-01-15',
+    deliveryDate: '2024-01-17'
+  },
+  {
+    id: 'ORD-001',
+    customerName: 'John Smith',
+    customerPhone: '+1-555-0123',
+    customerAddress: '123 Main St, New York, NY 10001',
+    items: [
+      { name: 'Chocolate Cake', quantity: 1, price: 25.99 },
+      { name: 'Vanilla Cupcakes', quantity: 6, price: 18.00 }
+    ],
+    total: 43.99,
+    status: 'delivered',
+    orderDate: '2024-01-15',
+    deliveryDate: '2024-01-16'
+  },
+  {
+    id: 'ORD-002',
+    customerName: 'Sarah Johnson',
+    customerPhone: '+1-555-0456',
+    customerAddress: '456 Oak Ave, Los Angeles, CA 90210',
+    items: [
+      { name: 'Wedding Cake', quantity: 1, price: 150.00 },
+      { name: 'Macarons', quantity: 24, price: 48.00 }
+    ],
+    total: 198.00,
+    status: 'processing',
+    orderDate: '2024-01-14',
+    deliveryDate: '2024-01-18'
+  },
+  {
+    id: 'ORD-003',
+    customerName: 'Mike Davis',
+    customerPhone: '+1-555-0789',
+    customerAddress: '789 Pine St, Chicago, IL 60601',
+    items: [
+      { name: 'Croissants', quantity: 12, price: 24.00 },
+      { name: 'Coffee Cake', quantity: 1, price: 15.99 }
+    ],
+    total: 39.99,
+    status: 'new',
+    orderDate: '2024-01-16',
+    deliveryDate: '2024-01-17'
+  },
+  {
+    id: 'ORD-004',
+    customerName: 'Emily Wilson',
+    customerPhone: '+1-555-0321',
+    customerAddress: '321 Elm St, Miami, FL 33101',
+    items: [
+      { name: 'Birthday Cake', quantity: 1, price: 35.00 }
+    ],
+    total: 35.00,
+    status: 'cancelled',
+    orderDate: '2024-01-13',
+    deliveryDate: null
+  },
+  {
+    id: 'ORD-005',
+    customerName: 'David Brown',
+    customerPhone: '+1-555-0654',
+    customerAddress: '654 Maple Dr, Seattle, WA 98101',
+    items: [
+      { name: 'Donuts', quantity: 24, price: 36.00 },
+      { name: 'Bagels', quantity: 12, price: 18.00 }
+    ],
+    total: 54.00,
+    status: 'processing',
+    orderDate: '2024-01-15',
+    deliveryDate: '2024-01-17'
   }
 ];
 
